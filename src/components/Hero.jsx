@@ -1,6 +1,8 @@
-import React from "react";
 import profilePic from "../assets/the_wok.jpg"
 import { motion } from "framer-motion"
+import React, { useState } from "react";
+import Buttons from "./Buttons";
+import Alerts from "./Alerts";
 
 const container = (delay) => ({
   hidden: {x: -100, opacity: 0},
@@ -12,11 +14,29 @@ const container = (delay) => ({
 })
 
 const Hero = () => {
+  const [show_alert,set_show_alert] = useState(false);
+  
+  const givealert = () => {
+    set_show_alert(true);
+  }
+  const closalert = () => {
+    set_show_alert(false);
+  }
   return (
     <div className="min-h-screen flex items-center border-b border-neutral-900 pb-4 lg:mb-35">
       <div className="flex flex-wrap">
         <div className="w-full lg:w-1/2">
           <div className="flex flex-col items-center lg:items-start">
+            {show_alert && <Alerts onClose={closalert}>How are you doing?</Alerts>}
+            <motion.Buttons 
+            onClick={givealert}
+            variants={container(0)}
+            initial="hidden"
+            animate="visible"
+            className="px-6 py-2 bg-cyan-600 text-white font-bold rounded-lg">
+            Say Hello!
+            </motion.Buttons>
+
             <motion.h1 
               variants={container(0)}
               initial="hidden"
