@@ -36,9 +36,8 @@ const Hero = () => {
             className="px-6 py-2 bg-cyan-600 text-white font-bold rounded-lg">
             Say Hello!
             </motion.Buttons>
-
             <motion.h1 
-              variants={container(0)}
+              variants={container(0.125)}
               initial="hidden"
               animate="visible"
               className="pb-16 text-6xl font-thin tracking-tight lg:mt-16 lg:text-8xl">
