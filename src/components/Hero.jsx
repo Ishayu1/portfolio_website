@@ -1,4 +1,4 @@
-import profilePic from "../assets/the_wok.jpg"
+import profilePic from "../assets/batman.webp"
 import { motion } from "framer-motion"
 import React, { useState } from "react";
 import Buttons from "./Buttons";
@@ -7,7 +7,7 @@ import Alerts from "./Alerts";
 const container = (delay) => ({
   hidden: {x: -100, opacity: 0},
   visible: {
-    x: 0,
+    x: -40,
     opacity: 1,
     transition: {duration: 0.5, delay: delay}
   }
@@ -40,7 +40,7 @@ const Hero = () => {
               variants={container(0.125)}
               initial="hidden"
               animate="visible"
-              className="pb-16 text-6xl font-thin tracking-tight lg:mt-16 lg:text-8xl">
+              className="pb-16 text-6xl font-thin tracking-tight lg:mt-16 lg:text-8xl whitespace-nowrap">
               Ishayu Ghosh
             </motion.h1>
             <motion.span 
@@ -63,7 +63,7 @@ const Hero = () => {
             <div className="flex justify-center">
                 <motion.img
                   initial={{x:100,opacity:0}}
-                  animate={{x:0,opacity:1}}
+                  animate={{x:40,opacity:1}}
                   transition={{duration: 0.5, delay: 0.6}}
                   src={profilePic} alt="Ishayu Ghosh">
                   

@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import Buttons from "./Buttons";
 import { Link } from "react-router-dom";
 
+
 const CounterGame = () => {
   const [showCount, setShowCount] = useState(0);
+  const [lastCount, setLastCount] = useState(0);
   const [highest_count, setHighest_count] = useState(0);
   const [name, set_name] = useState("");
+  const [show_name,set_show_name] = useState("");
 
   const handleClick = () => {
     setShowCount(showCount + 1);
@@ -15,12 +18,14 @@ const CounterGame = () => {
     if (showCount > highest_count) {
       setHighest_count(showCount);
     }
+    setLastCount(showCount);
     setShowCount(0);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
     const name_value = {name}
     console.log(name_value);
+    set_show_name(name);
   }
   return (
     <div className="text-center mt-20">
@@ -49,7 +54,8 @@ const CounterGame = () => {
       </div>
   
       <h2 className="mt-6 text-2xl">Highest count: {highest_count}</h2>
-      <p>Welcome to the playground {name}</p>
+      <h3 className="mt-6 text-2xl">Latest count: {lastCount}</h3>
+      <p>Welcome {show_name}</p>
   
       {/* <Link to="/" className="text-cyan-400 hover:underline mt-12 block text-lg">
         Go back to Home

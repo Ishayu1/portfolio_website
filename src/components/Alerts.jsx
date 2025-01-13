@@ -2,7 +2,7 @@ import { motion } from "framer-motion"
 
 const Alerts = ({ children, onClose }) => {
   return (
-    <div className="rounded-2xl fixed top-22 left-1/4 w-auto bg-yellow-100 border-b-2 border-yellow-500 text-yellow-800 shadow-md z-50 flex items-center justify-between px-6 py-4">
+    <div className="rounded-2xl absolute top-22 left-1/4 w-auto bg-yellow-100 border-b-2 border-yellow-500 text-yellow-800 shadow-md z-50 flex items-center justify-between px-6 py-4">
       <div className="flex-1 text-lg">
         <strong>{children}</strong>
       </div>

@@ -4,6 +4,7 @@ import About from "./components/About";
 import Technologies from "./components/Technologies";
 import CounterGame from "./components/CounterGame"; 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Experiences from "./components/Experiences";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
                 <Hero />
                 <About />
                 <Technologies />
+                <Experiences />
               </>
             } />
             <Route path="/CounterGame" element={<CounterGame />} />

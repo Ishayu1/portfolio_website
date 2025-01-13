@@ -24,7 +24,7 @@ const NavBar = () => {
       <div className="flex flex-shrink-0 items-center">
         <h1 style={{ fontSize: "3rem" }}>IG</h1>
       </div>
-      <div className="flex gap-6">
+      <div className="absolute inset-x-0 text-center">
         {location.pathname === "/" ? (
           <Link to="/CounterGame" className="text-cyan-400 hover:underline mt-12 block text-lg">Counter Game</Link>
         ) : (

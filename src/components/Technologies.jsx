@@ -1,8 +1,9 @@
 import { RiReactjsLine } from "react-icons/ri"
-import { FaPython } from "react-icons/fa";
+import { FaJava, FaPython } from "react-icons/fa";
 import { FaDatabase } from "react-icons/fa";
 import { DiJavascript1 } from "react-icons/di";
 import {motion} from "framer-motion"
+import { FaC } from "react-icons/fa6";
 
 const iconVariants = (duration) => ({
     inital: {y:-10},
@@ -23,6 +24,7 @@ const Technologies = () => {
         { icon: <FaPython className="text-7xl text-green-500" />, label: "Python" ,duration:1.5},
         { icon: <FaDatabase className="text-7xl text-red-700" />, label: "Database" ,duration:3},
         { icon: <DiJavascript1 className="text-7xl text-sky-700" />, label: "JavaScript" ,duration:2},
+        { icon: <FaJava className="text-7xl text-sky-700" />, label: "Java" ,duration:1.75},
       ];
   return (
     <div className="border-b border-neutral-800 pb-24">
