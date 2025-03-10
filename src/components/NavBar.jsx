@@ -20,13 +20,13 @@ const NavBar = () => {
     
 
   return (
-    <nav className="mb-20 flex items-center justify-between">
+    <nav className="mb-20 mt-8 flex items-center justify-between">
       <div className="flex flex-shrink-0 items-center">
         <h1 style={{ fontSize: "3rem" }}>IG</h1>
       </div>
       <div className="absolute inset-x-0 text-center">
         {location.pathname === "/" ? (
-          <Link to="/CounterGame" className="text-cyan-400 hover:underline mt-12 block text-lg">Counter Game</Link>
+          <Link to="/CounterGame" className="text-cyan-400 hover:underline mt-5 block text-lg cursor-pointer">Counter Game</Link>
         ) : (
           <Link to="/" className="text-cyan-400 hover:underline mt-12 block text-lg">Go Back to Home</Link>
         )}

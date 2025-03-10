@@ -33,7 +33,7 @@ const Hero = () => {
             variants={container(0)}
             initial="hidden"
             animate="visible"
-            className="px-6 py-2 bg-cyan-600 text-white font-bold rounded-lg">
+            className="px-6 py-2 bg-cyan-600 text-white font-bold rounded-lg cursor-pointer">
             Say Hello!
             </motion.Buttons>
             <motion.h1 

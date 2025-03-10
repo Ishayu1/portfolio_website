@@ -1,7 +1,7 @@
 import aboutimg from "../assets/about.jpg"
 import { motion } from "framer-motion"
 
-const About = () => {
+const About = () => { 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center border-b border-neutral-900 pb-4">
       <motion.h2 
