@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Buttons from "./Buttons";
+import { HashRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
 
 const CounterGame = () => {
   const initialTime = 3000; // 5 seconds in milliseconds
@@ -104,26 +105,28 @@ const CounterGame = () => {
     <div className="text-center mt-20">
       <h1 className="text-4xl mb-10">Counter Game</h1>
 
-      <h2 className="text-2xl">
+      {submitted_name && <h2 className="text-2xl">
         Time Left: {(timeLeft / 1000).toFixed(2)} seconds
-      </h2>
+      </h2>}
 
       <div className="flex flex-col items-center space-y-4">
         {!submitted_name ? (
-          <form onSubmit={handleSubmit}>
-            <label>Enter Your Name: </label>
-            <input 
-              type="text"
-              required
-              className="text-black mr-4"
-              value={name}
-              onChange={(e) => set_name(e.target.value)}
-            />
-            <Buttons type="submit">Submit</Buttons>
-          </form>
+          <div className="mb-6">
+              <form onSubmit={handleSubmit}>
+              <label>Enter Your Name: </label>
+              <input 
+                type="text"
+                required
+                className="text-black mr-4"
+                value={name}
+                onChange={(e) => set_name(e.target.value)}
+              />
+              <Buttons type="submit">Submit</Buttons>
+            </form>
+          </div>
         ) : (
           <>
-            <p className="text-xl font-semibold mb-2">Player: {show_name}</p>
+            <p className="text-xl font-semibold mb-2 mt-4">Player: {show_name}</p>
 
             <Buttons onClick={handleClick} className="px-4 py-2 bg-cyan-600 hover:bg-cyan-500 rounded text-white">
               Counter for fun: <span className="text-black hover:underline">{showCount}</span>
@@ -192,8 +195,12 @@ const CounterGame = () => {
         )}
       </div>
 
-      {submitted_name && <h2 className="mt-6 text-2xl">Average count: {average(player_rounds).toFixed(1)}</h2>}
+      {submitted_name && <h2 className="mt-6 mb-6 text-2xl">Average count: {average(player_rounds).toFixed(1)}</h2>}
+      <Link to="/" className="text-cyan-400 hover:underline text-lg cursor-pointer">
+          Go Back to Home
+      </Link>
     </div>
+    
   );
 };
 

@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://github.com/Ishayu1/portfolio_website",
+  "homepage": "https://ishayu1.github.io/portfolio_website/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

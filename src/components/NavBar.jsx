@@ -24,13 +24,6 @@ const NavBar = () => {
       <div className="flex flex-shrink-0 items-center">
         <h1 style={{ fontSize: "3rem" }}>IG</h1>
       </div>
-      <div className="absolute inset-x-0 text-center">
-        {location.pathname === "/" ? (
-          <Link to="/CounterGame" className="text-cyan-400 hover:underline mt-5 block text-lg cursor-pointer">Counter Game</Link>
-        ) : (
-          <Link to="/" className="text-cyan-400 hover:underline mt-12 block text-lg">Go Back to Home</Link>
-        )}
-      </div>
       {/* <Buttons onClick={handleClick}>Counter for fun: {showCount}</Buttons>
       <Buttons onClick={resetClick}>Reset count</Buttons>
       <h2>Highest count: {highest_count}</h2> */}
