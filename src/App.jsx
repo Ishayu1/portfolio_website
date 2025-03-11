@@ -5,6 +5,7 @@ import Technologies from "./components/Technologies";
 import CounterGame from "./components/CounterGame"; 
 import { HashRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
 import Experiences from "./components/Experiences";
+import Projects from "./components/Projects";
 
 const App = () => {
   return (
@@ -29,11 +30,11 @@ const MainApp = () => {
           <Route path="/" element={
             <>
               <Hero />
-              <About />
-              <Technologies />
               <Experiences />
-              <div className="absolute inset-x-0 text-center">
-                  <Link to="/CounterGame" className="text-cyan-400 hover:underline mt-5 inline-block text-lg cursor-pointer">
+              <Projects/>
+              <Technologies />
+              <div className="absolute inset-x-0 text-center pb-4">
+                  <Link to="/CounterGame" className="text-cyan-400 hover:underline mt-5 inline-block text-4xl cursor-pointer">
                     Counter Game
                   </Link>
               </div>

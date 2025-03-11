@@ -3,6 +3,7 @@ import { motion } from "framer-motion"
 import React, { useState } from "react";
 import Buttons from "./Buttons";
 import Alerts from "./Alerts";
+import { HERO_CONTENT } from "../constants"
 
 const container = (delay) => ({
   hidden: {x: -100, opacity: 0},
@@ -27,15 +28,6 @@ const Hero = () => {
       <div className="flex flex-wrap">
         <div className="w-full lg:w-1/2">
           <div className="flex flex-col items-center lg:items-start">
-            {show_alert && <Alerts onClose={closalert}>How are you doing?</Alerts>}
-            <motion.Buttons 
-            onClick={givealert}
-            variants={container(0)}
-            initial="hidden"
-            animate="visible"
-            className="px-6 py-2 bg-cyan-600 text-white font-bold rounded-lg cursor-pointer">
-            Say Hello!
-            </motion.Buttons>
             <motion.h1 
               variants={container(0.125)}
               initial="hidden"
@@ -48,14 +40,14 @@ const Hero = () => {
               initial="hidden"
               animate="visible"
               className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-4xl tracking-tight text-transparent">
-                Data Scientist
+                Problem Solver
             </motion.span>
             <motion.p 
               variants={container(0.5)}
               initial="hidden"
               animate="visible"
               className="my-2 max--xl py-6 font-light tracking-tighter">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam eum dolor ex deleniti non quisquam, voluptate iste minima obcaecati accusantium veritatis debitis et ipsam tempora quod reprehenderit provident, aperiam voluptatem?
+                {HERO_CONTENT}
             </motion.p>
           </div>
         </div>

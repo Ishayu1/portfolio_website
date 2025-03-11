@@ -10,9 +10,8 @@ import { Link, useLocation} from "react-router-dom";
 
 const NavBar = () => {
     const socialLinks = [
-        { icon: <FaLinkedin />, url: "https://www.linkedin.com", label: "LinkedIn" },
-        { icon: <FaGithub />, url: "https://github.com", label: "GitHub" },
-        { icon: <FaTwitter />, url: "https://twitter.com", label: "Twitter" },
+        { icon: <FaLinkedin />, url: "https://www.linkedin.com/in/ishayughosh", label: "LinkedIn" },
+        { icon: <FaGithub />, url: "https://github.com/Ishayu1", label: "GitHub" },
         { icon: <FaInstagram />, url: "https://www.instagram.com", label: "Instagram" }
       ];
 
@@ -20,7 +19,7 @@ const NavBar = () => {
     
 
   return (
-    <nav className="mb-20 mt-8 flex items-center justify-between">
+    <nav className="mt-8 flex items-center justify-between">
       <div className="flex flex-shrink-0 items-center">
         <h1 style={{ fontSize: "3rem" }}>IG</h1>
       </div>
