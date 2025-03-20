@@ -52,14 +52,22 @@ const Hero = () => {
           </div>
         </div>
         <div className="w-full lg:w-1/2 lg:p-8">
-            <div className="flex justify-center">
+            <div className="flex flex-col items-center">
                 <motion.img
-                  initial={{x:100,opacity:0}}
-                  animate={{x:40,opacity:1}}
-                  transition={{duration: 0.5, delay: 0.6}}
-                  src={profilePic} alt="Ishayu Ghosh">
-                  
-                </motion.img>
+                    initial={{ x: 100, opacity: 0 }}
+                    animate={{ x: 40, opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.6 }}
+                    src={profilePic}
+                    alt="Ishayu Ghosh"
+                />
+                <motion.p
+                    initial={{ x: 100, opacity: 0 }}
+                    animate={{ x: 40, opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.6 }}
+                    className="mt-2 text-white text-m"
+                >
+                    Yes this is an accurate photo of me
+                </motion.p>
             </div>
         </div>
       </div>

@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 
 const CounterGame = () => {
-  const initialTime = 3000; 
+  const initialTime = 5000; 
   const [showCount, setShowCount] = useState(0);
   const [highest_count, setHighest_count] = useState(0);
   const [name, set_name] = useState("");
@@ -107,7 +107,8 @@ const CounterGame = () => {
 
   return (
     <div className="text-center mt-20">
-      <h1 className="text-4xl mb-10">Clicking Game</h1>
+      <h1 className="text-4xl mb-16">Test how fast you can click in 5 seconds</h1>
+      <h1 className="text-3xl mb-10">Clicking Game</h1>
 
       {submitted_name && (
         <h2 className="text-2xl">
