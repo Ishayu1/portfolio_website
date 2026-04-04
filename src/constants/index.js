@@ -1,9 +1,7 @@
-import project1 from "../assets/projects/project-1.jpg";
-import project2 from "../assets/projects/project-2.jpg";
 import project3 from "../assets/projects/project-3.jpg";
-import project4 from "../assets/projects/project-4.jpg";
 import research from "../assets/projects/Ghosh_thumbnail.jpg"
 import cricket from "../assets/projects/Cricket_website.jpg"
+import tritonball from "../assets/projects/tritonball.jpeg"
 
 
 export const HERO_CONTENT = `I am a university student who is passionate about AI, maths and full-stack development. I build scalable applications, analyze complex data, and innovate with AI to solve real-world problems. I'm Always learning, always creating, and always looking for experience.`;
@@ -11,6 +9,13 @@ export const HERO_CONTENT = `I am a university student who is passionate about A
 export const ABOUT_TEXT = `I am a dedicated and versatile full stack developer with a passion for creating efficient and user-friendly web applications. With 5 years of professional experience, I have worked with a variety of technologies, including React, Next.js, Node.js, MySQL, PostgreSQL, and MongoDB. My journey in web development began with a deep curiosity for how things work, and it has evolved into a career where I continuously strive to learn and adapt to new challenges. I thrive in collaborative environments and enjoy solving complex problems to deliver high-quality solutions. Outside of coding, I enjoy staying active, exploring new technologies, and contributing to open-source projects.`;
 
 export const EXPERIENCES = [
+  {
+    "year": "April 2025 - Present",
+    "role": "ML researcher",
+    "company": "de Sa Lab, UCSD",
+    "description": "Built a brain–computer interface pipeline that turns raw 60-channel EEG into recognized handwritten letters. Combined EEGLAB preprocessing with an EEGNet-based deep network and SVM to match published benchmark accuracy.",
+    "technologies": ["EEGLab", "PyTorch", "Scikit-Learn", "MNE"]
+  },
   {
     "year": "October 2024 - Present",
     "role": "Software Developer",
@@ -36,6 +41,14 @@ export const EXPERIENCES = [
 
 
 export const PROJECTS = [
+  {
+    title: "TritonBall website",
+    image: tritonball,
+    description:
+      "Led the development of the website for a new sports analytics organization at UCSD (TritonBall). Styled with CSS animations and tailwind. Reviewed all PRs and managed deployment.",
+    technologies: ["React", "TypeScript", "CSS", "Git"],
+    link: "https://tritonball.org/"
+  },
   {
     title: "Sports Predictive Analysis Research Paper",
     image: research,

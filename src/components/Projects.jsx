@@ -9,40 +9,43 @@ const Projects = () => {
                 initial={{ opacity: 0, y: -100 }}
                 transition={{ duration: 1.5 }}
                 viewport={{ once: true }}
-                className="my-20 text-center text-4xl"
+                className="my-12 text-center text-3xl sm:my-16 sm:text-4xl md:my-20"
             >
                 Projects
             </motion.h1>
             <div>
                 {PROJECTS.map((project, index) => (
-                    <div key={index} className="mb-8 flex flex-wrap lg:justify-center">
+                    <div
+                        key={index}
+                        className="mb-10 flex flex-col flex-wrap items-center gap-6 sm:mb-12 lg:flex-row lg:items-start lg:justify-center lg:gap-8"
+                    >
                         <motion.div
                             whileInView={{ opacity: 1, x: 0 }}
                             initial={{ opacity: 0, x: -100 }}
                             transition={{ duration: 1 }}
                             viewport={{ once: true }} 
-                            className="w-full lg:w-1/4"
+                            className="flex w-full justify-center lg:w-1/4 lg:justify-start"
                         >
                             <img 
                                 src={project.image}
                                 width={175}
                                 height={175}
                                 alt={project.title}
-                                className="mb-20 rounded"
+                                className="mb-2 h-auto w-full max-w-[140px] rounded object-cover sm:max-w-[160px] lg:mb-0 lg:max-w-[175px]"
                             />
                         </motion.div>
                         <motion.div 
-                            whileInView={{ opacity: 1, x: 50 }}
-                            initial={{ opacity: 0, x: 100 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, x: 24 }}
                             transition={{ duration: 1 }}
                             viewport={{ once: true }} 
-                            className="w-full max-w-xl lg:w-3/4"
+                            className="w-full min-w-0 max-w-xl mx-auto lg:mx-0 lg:w-3/4 lg:pl-4"
                         >
-                            <h6 className="mb-2 font-semibold">{project.title}</h6>
-                            <p className="mb-4 text-neutral-400">{project.description}</p>
-                            <div className="mb-4">
+                            <h6 className="mb-2 text-center text-base font-semibold sm:text-lg lg:text-left">{project.title}</h6>
+                            <p className="mb-4 text-center text-sm text-neutral-400 sm:text-base lg:text-left">{project.description}</p>
+                            <div className="mb-4 flex flex-wrap justify-center gap-2 lg:justify-start">
                                 {project.technologies.map((tech, index) => (
-                                    <span key={index} className="mr-2 rounded bg-neutral-900 px-2 py-1 text-sm font-medium">{tech}</span>
+                                    <span key={index} className="rounded bg-neutral-900 px-2 py-1 text-xs font-medium sm:text-sm">{tech}</span>
                                 ))}
                             </div>
                             {project.link && (
@@ -53,7 +56,7 @@ const Projects = () => {
                                     href={project.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-blue-500 hover:underline"
+                                    className="block text-center text-sm text-blue-500 hover:underline sm:text-base lg:text-left"
                                 >
                                     View Project
                                 </motion.a>
