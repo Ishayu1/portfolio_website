@@ -1,9 +1,8 @@
-import { motion } from "framer-motion"
-
+/* eslint-disable react/prop-types -- small presentational component */
 const Alerts = ({ children, onClose }) => {
   return (
-    <div className="rounded-2xl absolute top-22 left-1/4 w-auto bg-yellow-100 border-b-2 border-yellow-500 text-yellow-800 shadow-md z-50 flex items-center justify-between px-6 py-4">
-      <div className="flex-1 text-lg">
+    <div className="fixed inset-x-4 top-20 z-50 mx-auto flex max-w-lg items-center justify-between rounded-2xl border-b-2 border-yellow-500 bg-yellow-100 px-4 py-3 text-yellow-800 shadow-md sm:inset-x-auto sm:left-1/2 sm:top-24 sm:w-full sm:max-w-xl sm:-translate-x-1/2 sm:px-6 sm:py-4">
+      <div className="min-w-0 flex-1 text-sm sm:text-lg">
         <strong>{children}</strong>
       </div>
       <button

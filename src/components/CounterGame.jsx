@@ -1,15 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Buttons from "./Buttons";
-import {
-  HashRouter as Router,
-  Routes,
-  Route,
-  Link,
-  useLocation,
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const CounterGame = () => {
-  const initialTime = 3000; 
+  const [initialTime] = useState(5000);
   const [showCount, setShowCount] = useState(0);
   const [highest_count, setHighest_count] = useState(0);
   const [name, set_name] = useState("");
@@ -35,6 +29,7 @@ const CounterGame = () => {
     }, 10);
 
     return () => clearInterval(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- timer only keys off isRunning/timeLeft; endRound omitted intentionally
   }, [isRunning, timeLeft]);
 
   const startGame = () => {
@@ -106,39 +101,52 @@ const CounterGame = () => {
   };
 
   return (
-    <div className="text-center mt-20">
-      <h1 className="text-4xl mb-10">Clicking Game</h1>
+    <div className="mx-auto mt-8 max-w-2xl px-4 pb-12 text-center sm:mt-12 md:mt-20">
+      <h1 className="mb-4 text-2xl font-medium sm:mb-6 sm:text-3xl md:text-4xl">
+        Test how fast you can click
+      </h1>
+      <h2 className="mb-6 text-xl sm:mb-8 sm:text-2xl md:text-3xl">Clicking Game</h2>
 
       {submitted_name && (
-        <h2 className="text-2xl">
+        <p className="mb-4 text-lg sm:text-2xl">
           Time Left: {(timeLeft / 1000).toFixed(2)} seconds
-        </h2>
+        </p>
       )}
 
-      <div className="flex flex-col items-center space-y-4">
+      <div className="flex flex-col items-center space-y-4 sm:space-y-5">
         {!submitted_name ? (
-          <div className="mb-6">
-            <form onSubmit={handleSubmit}>
-              <label>Enter Your Name: </label>
+          <div className="mb-4 w-full max-w-md">
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-end sm:justify-center"
+            >
+              <label className="block text-left text-sm sm:mb-0 sm:inline sm:text-base">
+                Enter Your Name:
+              </label>
               <input
                 type="text"
                 required
-                className="text-black mr-4"
+                className="min-h-10 w-full rounded border border-neutral-600 bg-white px-3 py-2 text-black sm:min-w-[12rem] sm:max-w-xs sm:flex-1"
                 value={name}
                 onChange={(e) => set_name(e.target.value)}
               />
-              <Buttons type="submit">Submit</Buttons>
+              <Buttons
+                type="submit"
+                className="w-full rounded-lg bg-cyan-600 px-6 py-2 font-bold text-white shadow-lg transition duration-300 ease-in-out hover:bg-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-300 sm:w-auto"
+              >
+                Submit
+              </Buttons>
             </form>
           </div>
         ) : (
           <>
-            <p className="text-xl font-semibold mb-2 mt-4">
+            <p className="mb-2 mt-2 text-lg font-semibold sm:text-xl">
               Player: {show_name}
             </p>
 
             <Buttons
               onClick={handleClick}
-              className="px-4 py-2 bg-cyan-600 hover:bg-cyan-500 rounded text-white"
+              className="w-full max-w-xs rounded-lg bg-cyan-600 px-4 py-2 text-sm font-bold text-white shadow-lg transition duration-300 hover:bg-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-300 sm:w-auto sm:text-base"
             >
               Counter for fun:{" "}
               <span className="text-black hover:underline">{showCount}</span>
@@ -148,14 +156,14 @@ const CounterGame = () => {
               round_active ? (
                 <Buttons
                   onClick={endRound}
-                  className="px-4 py-2 bg-yellow-500 hover:bg-red-500 rounded text-white"
+                  className="w-full max-w-xs rounded-lg bg-yellow-500 px-4 py-2 font-bold text-white shadow-lg transition duration-300 hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-yellow-300 sm:w-auto"
                 >
                   End Round
                 </Buttons>
               ) : (
                 <Buttons
                   onClick={startRound}
-                  className="px-4 py-2 bg-green-500 hover:bg-green-400 rounded text-white"
+                  className="w-full max-w-xs rounded-lg bg-green-500 px-4 py-2 font-bold text-white shadow-lg transition duration-300 hover:bg-green-400 focus:outline-none focus:ring-2 focus:ring-green-300 sm:w-auto"
                 >
                   Start Round
                 </Buttons>
@@ -163,7 +171,7 @@ const CounterGame = () => {
             ) : (
               <Buttons
                 onClick={startGame}
-                className="px-4 py-2 bg-blue-600 hover:bg-blue-500 rounded text-white"
+                className="w-full max-w-xs rounded-lg bg-blue-600 px-4 py-2 font-bold text-white shadow-lg transition duration-300 hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:w-auto"
               >
                 Start Game
               </Buttons>
@@ -172,40 +180,45 @@ const CounterGame = () => {
             {game_status && (
               <Buttons
                 onClick={endGame}
-                className="px-4 py-2 bg-red-600 hover:bg-red-500 rounded text-white"
+                className="w-full max-w-xs rounded-lg bg-red-600 px-4 py-2 font-bold text-white shadow-lg transition duration-300 hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-300 sm:w-auto"
               >
                 End Game
               </Buttons>
             )}
 
-            {/* Show previous rounds for the current player */}
-            <h2 className="mt-6 text-2xl">Previous Rounds:</h2>
-            <ul className="list-disc mt-2">
+            <h3 className="mt-4 text-lg sm:mt-6 sm:text-2xl">Previous Rounds:</h3>
+            <ul className="mt-2 w-full max-w-md list-inside list-disc text-left text-sm sm:text-base">
               {player_rounds.length > 0 ? (
                 player_rounds.map((score, index) => (
-                  <li key={index}>
+                  <li key={index} className="break-words">
                     Round {index + 1}: {score} clicks
                   </li>
                 ))
               ) : (
-                <p>No rounds played yet.</p>
+                <li className="list-none pl-0 text-center sm:text-left">No rounds played yet.</li>
               )}
             </ul>
           </>
         )}
 
-        {/* Show leaderboard only when the game is over */}
         {!game_status && Object.keys(players).length > 0 && (
           <>
-            <h1 className="text-xl">Leaderboard</h1>
-            <div className="mb-12">
-              <ol className="list-decimal list-inside text-left">
+            <h3 className="text-lg sm:text-xl">Leaderboard</h3>
+            <div className="mb-8 w-full max-w-lg sm:mb-12">
+              <ol className="list-inside list-decimal space-y-3 text-left text-sm sm:text-base">
                 {Object.entries(players)
-                  .sort((a, b) => b[1] - a[1]) // 🔹 Sort in descending order
+                  .sort((a, b) => b[1] - a[1])
                   .map(([key, scores], index) => (
-                    <li key={key} className="flex justify-between w-full gap-8 mb-6 mt-4">
-                      <span className="font-semibold">{index+1}.&nbsp;&nbsp; {key}:</span>
-                      <span>{average(scores).toFixed(1)} clicks per round</span>
+                    <li
+                      key={key}
+                      className="flex flex-col gap-1 border-b border-neutral-800 pb-3 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4"
+                    >
+                      <span className="min-w-0 break-words font-semibold">
+                        {index + 1}. {key}:
+                      </span>
+                      <span className="shrink-0 text-neutral-400 sm:text-neutral-300">
+                        {average(scores).toFixed(1)} clicks per round
+                      </span>
                     </li>
                   ))}
               </ol>
@@ -215,14 +228,14 @@ const CounterGame = () => {
       </div>
 
       {submitted_name && (
-        <h2 className="mt-6 mb-6 text-2xl">
+        <p className="mt-6 text-lg sm:mb-6 sm:text-2xl">
           Average count: {average(player_rounds).toFixed(1)}
-        </h2>
+        </p>
       )}
-      <div className="mt-12">
+      <div className="mt-8 sm:mt-12">
         <Link
           to="/"
-          className="text-cyan-400 hover:underline text-lg cursor-pointer"
+          className="cursor-pointer text-base text-cyan-400 hover:underline sm:text-lg"
         >
           Go Back to Home
         </Link>
