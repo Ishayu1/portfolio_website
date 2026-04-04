@@ -39,6 +39,27 @@ gh pr create --base main --head feature/<short-description> --fill
 
 If `gh` is unavailable, push the branch and open a PR manually in the GitHub UI against **`main`**.
 
+## Publish to GitHub Pages (after the feature is on `main`)
+
+Pushing to **`main`** does **not** update the live site by itself. This repo publishes the **built** app from **`dist/`** to the **`gh-pages`** branch via the **`gh-pages`** package (`package.json` → `deploy`).
+
+After the PR is **merged** (or your changes are otherwise on **`main`**):
+
+```bash
+git checkout main
+git pull origin main
+npm ci
+npm run build
+npm run deploy
+```
+
+- **`npm run build`** — confirms the production bundle succeeds before publish (same as CI-style gate).
+- **`npm run deploy`** — runs **`predeploy`** (which runs **`npm run build`** again), then pushes **`dist/`** to **`gh-pages`**. GitHub Pages then serves the new build (usually within a minute or two).
+
+**Requirements:** Node dependencies installed, **git** with permission to push to this repo, and typically **HTTPS auth** or **SSH** to GitHub so `gh-pages` can update the remote branch. If deploy fails with a permissions error, sign in to GitHub CLI (`gh auth login`) or configure SSH keys.
+
+For day-to-day workflow: **feature branch → PR → merge to `main` → pull `main` locally → `npm run build` → `npm run deploy`**.
+
 ## Responsive design (required)
 
 New UI must work at **all common widths** without horizontal overflow, clipped text, or controls that are unusable on touch.
@@ -124,4 +145,4 @@ Confirm: no horizontal scroll, readable text, interactive elements reachable, an
 
 ## After merge
 
-Production site is **GitHub Pages**; merging to `main` updates the source repo. Deploying the built site still follows `package.json` scripts (`npm run deploy` / `gh-pages`) when you are ready to publish **`dist/`**.
+Merging to **`main`** updates source only. To refresh **https://ishayu1.github.io/portfolio_website/**, follow **[Publish to GitHub Pages (after the feature is on `main`)](#publish-to-github-pages-after-the-feature-is-on-main)** — run **`npm run build`** and **`npm run deploy`** from an up-to-date **`main`** checkout.

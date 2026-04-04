@@ -10,6 +10,13 @@ export const ABOUT_TEXT = `I am a dedicated and versatile full stack developer w
 
 export const EXPERIENCES = [
   {
+    "year": "November 2025 - Present",
+    "role": "AI Engineering Intern",
+    "company": "San Diego Supercomputer Center, La Jolla, CA",
+    "description": "Built an agentic ML recommendation system that uses LLM reasoning and executable tools to make structured model-selection decisions across tabular, NLP, and vision tasks. Designed a schema-based tool-calling system that validates LLM outputs and recovers from errors (e.g., malformed responses, invalid tool invocations). Finetuned recommended Hugging Face models for over 90% accuracy on image classification datasets.",
+    "technologies": ["Python", "LLMs", "Hugging Face", "PyTorch", "ML"]
+  },
+  {
     "year": "April 2025 - Present",
     "role": "ML researcher",
     "company": "de Sa Lab, UCSD",
